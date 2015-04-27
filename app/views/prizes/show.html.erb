@@ -1,0 +1,12 @@
+<h3><%= @prize.name %></h3>
+<h3><%= @prize.description %></h3>
+<h3><%= @prize.value %></h3>
+<% if @prize.image_file_name %>
+  <h3><%= image_tag @prize.image.url %></h3>
+<% else %>
+  <em><p>No picture available</p></em>
+<% end %>
+
+<%= form_for(:prize, url: :redeem_prize) do |f| %>
+  <%= f.submit "Redeem" %>
+<% end %>

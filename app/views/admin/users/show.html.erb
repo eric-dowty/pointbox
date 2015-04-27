@@ -1,0 +1,24 @@
+<%= @user.username %>
+<h3>User role: <%= @user.role %> </h3>
+<h3>Prizes Awarded</h3>
+<% @user.prizes.each do |prize| %>
+  <p>
+    <%= prize.name %>
+    <%= prize.value %>
+  </p>
+<% end %>
+
+<h3>Update User Points</h3>
+<%= form_for(:user, url: :admin_user, method: :put) do |f| %>
+  <%= f.text_field :points, value: @user.points  %>
+  <%= f.submit %>
+<% end %>
+
+<h3>Disable User</h3>
+<%= form_for(:user, url: :admin_user, method: :put) do |f| %>
+  <%= f.radio_button :disable, true, checked: @user.disabled? %>DISABLED
+  <%= f.radio_button :disable, false, checked: @user.not_disabled? %>ACTIVE
+  <%= f.submit %>
+<% end %>
+
+

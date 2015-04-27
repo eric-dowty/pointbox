@@ -1,0 +1,11 @@
+<% @prizes.each do |prize| %>
+  <p>
+    <%= prize.name %>
+    <%= link_to "edit", edit_admin_prize_path(prize) %>
+    <%= link_to "show", admin_prize_path(prize) %>
+    <%= button_to "archive", admin_archive_prize_path(prize), confirm: "OK to archive?" %>
+  </p>
+<% end %>
+
+<%= button_to "New Prize", new_admin_prize_path, method: :get %>
+<%= button_to "Archives", admin_archive_prizes_path, method: :get %>

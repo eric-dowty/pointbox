@@ -1,0 +1,6 @@
+<% @prizes.each do |prize| %>
+  <p>
+    <%= prize.name %>
+    <%= link_to "details", prize_path(prize) %>
+  </p>
+<% end %>

@@ -1,0 +1,12 @@
+<%= form_for(:prize, url: :admin_prize, method: :put, html: {multipart: true}) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_area :description %>
+  <%= f.text_field :value %>
+  <%= f.radio_button :available, true %>Yes
+  <%= f.radio_button :available, false %>No
+  <p>
+    <%= f.label :image, "Attach an Image" %><br />
+    <%= f.file_field :image %>
+  </p>
+  <%= f.submit %>
+<% end %>

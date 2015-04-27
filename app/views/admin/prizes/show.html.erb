@@ -1,0 +1,17 @@
+<h3><%= @prize.name %></h3><br>
+<h4>Description</h4>
+<%= @prize.description %><br>
+<h4>Value</h4>
+<%= @prize.value %><br>
+<h4>Available</h4>
+  <% if @prize.available == true %>
+    <%= "YES" %>
+  <% else %>
+    <%= "NO" %>
+  <% end %>
+<h4>Picture</h4>
+<% if @prize.image_file_name %>
+  <p><%= image_tag @prize.image.url %></p>
+<% else %>
+  <em><p>No Image File</p></em>
+<% end %>

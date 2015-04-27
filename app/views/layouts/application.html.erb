@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Literail</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class="container-fluid nav">
+    <% if current_user && current_user.admin? %>
+      <%= link_to "Prizes", admin_prizes_path %>
+      <%= link_to "Users", admin_users_path %>
+    <% end %>
+    <% if current_user %>
+      <%= link_to "Home", user_path(current_user) %>
+    <% end %>
+  </div>
+
+  <div class="container-fluid flash">
+    <% flash.each do |type,message| %>
+      <%= message %>
+    <% end %>
+  </div>
+
+  <div class="container-fluid">
+  <%= yield %>
+  </div>
+</body>
+</html>

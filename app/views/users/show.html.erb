@@ -1,0 +1,14 @@
+<%= button_to "Logout", logout_path, method: :delete %>
+<h3>Welcome <%= current_user.username %> </h3>
+<p>You have <%= current_user.points %> points</p>
+
+<% if current_user.prizes == [] %>
+  <em><p>You have not redeemed any prizes</p></em>
+<% else %>
+  <p>You have redeemed these prizes!</p>
+  <% current_user.prizes.each do |prize| %>
+    <%= prize.name %><br>
+  <% end %>
+<% end %>
+
+<%= link_to "Redeem Prizes", prizes_path %>
